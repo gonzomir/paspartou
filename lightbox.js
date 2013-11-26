@@ -1,4 +1,10 @@
-window.addEventListener('DOMContentLoaded', function() {
+if( typeof(domready) != 'function' ){
+	function domready(fn){
+		document.addEventListener("DOMContentLoaded", fn);
+	}
+}
+
+domready(function() {
 	var images = new Array();
 	var current = 0;
 	var $links = document.querySelectorAll('#gallery a');
