@@ -3,12 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, height=device-height" />
-  <title>Lightbox example</title>
-  <link type="text/css" rel="stylesheet" href="lightbox.css" media="all" />
-  <script type="text/javascript" src="lightbox.js"></script>
+  <title>Paspartou</title>
+  <link type="text/css" rel="stylesheet" href="paspartou.css" media="all" />
+  <script type="text/javascript" src="paspartou.js"></script>
+
+  <style>
+    body {
+      max-width: 50em;
+      margin: 0 auto;
+      padding: 1.5em 1em;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    #gallery {
+      text-align: center;
+    }
+  </style>
+
 </head>
 <body>
-  <h1>Lightbox example</h1>
+  <h1>Paspartou</h1>
 
   <p id="gallery">
 
@@ -31,12 +47,12 @@
   <h2>How to use</h2>
   <p>Add the JavaScript and CSS files to the <code>head</code> of your document:</p>
   <pre>
-    &lt;link type="text/css" rel="stylesheet" href="lightbox.css" media="all" />
-    &lt;script type="text/javascript" src="lightbox.js">&lt;/script>
+    &lt;link type="text/css" rel="stylesheet" href="paspartou.css" media="all" />
+    &lt;script type="text/javascript" src="paspartou.js">&lt;/script>
   </pre>
   <p>Add this markup at the bottom of your document (I hate creating markup with JavaScript):</p>
   <pre>
-    &lt;div id="lightbox">
+    &lt;div id="paspartou">
       &lt;button id="prev">&#10094;&lt;/button>
       &lt;button id="next">&#10095;&lt;/button>
       &lt;div>
@@ -46,7 +62,7 @@
     &lt;/div>
   </pre>
 
-  <div id="lightbox">
+  <div id="paspartou">
     <button id="prev">&#10094;</button>
     <button id="next">&#10095;</button>
     <div>

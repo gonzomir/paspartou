@@ -1,4 +1,4 @@
-#lightbox {
+#paspartou {
 	display: none;
 	position: fixed;
 	top: 0;
@@ -12,11 +12,11 @@
 	transition: all ease 300ms;
 }
 
-#lightbox.active {
+#paspartou.active {
 	display: block;
 }
 
-#lightbox button {
+#paspartou button {
 	position: absolute;
 	top: 50%;
 	width: 1.5em;
@@ -37,24 +37,24 @@
 	cursor: pointer;
 }
 
-#lightbox button:hover {
+#paspartou button:hover {
 	border: 1px solid  rgba(255, 255, 255, .5);
 	box-shadow: 0 0 .25em rgba(255, 255, 255, .5);
 }
 
-#lightbox button:active {
+#paspartou button:active {
 	box-shadow: inset 0 0 .25em rgba(255, 255, 255, .5);
 }
 
-#lightbox #prev {
+#paspartou #prev {
 	left: .5em;
 }
 
-#lightbox #next {
+#paspartou #next {
 	right: .5em;
 }
 
-#lightbox #close {
+#paspartou #close {
 	top: .5em;
 	right: .5em;
 	margin: 0;
@@ -63,7 +63,7 @@
 }
 
 
-#lightbox > div {
+#paspartou > div {
 	display: -webkit-box;   /* OLD: Safari,  iOS, Android browser, older WebKit browsers.  */
 	display: -moz-box;      /* OLD: Firefox (buggy) */
 	display: -ms-flexbox;   /* MID: IE 10 */
@@ -86,7 +86,7 @@
 	text-align: center;
 }
 
-#lightbox > div > div {
+#paspartou > div > div {
 	width: auto;
 	height: auto;
 	max-width: 100%;
@@ -95,7 +95,7 @@
 	margin: 0 auto;
 }
 
-#lightbox img {
+#paspartou img {
 	width: auto;
 	height: auto;
 	max-width: 100%;
@@ -104,6 +104,6 @@
 	transition: all ease 200ms;
 }
 
-#lightbox img.hidden {
+#paspartou img.hidden {
 	opacity: 0;
 }

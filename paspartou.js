@@ -14,7 +14,7 @@ domready(function() {
 	var current = 0;
 	var container = document.getElementById('gallery');
 	var $links = container.getElementsByTagName('a');
-	var $lb = document.getElementById('lightbox');
+	var $lb = document.getElementById('paspartou');
 	var $im = null;
 	var addEventListener = (container.addEventListener)?'addEventListener':'attachEvent';
 	var click = (addEventListener == 'addEventListener')?'click':'onclick';
