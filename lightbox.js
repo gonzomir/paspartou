@@ -1,6 +1,11 @@
 if( typeof domready != 'function' ){
 	window.domready = function(fn){
-		document.addEventListener("DOMContentLoaded", fn);
+		if(document.addEventListener){
+			document.addEventListener('DOMContentLoaded', fn, false);
+		}
+		else {
+			window.onload = fn;
+		}
 	}
 }
 
@@ -21,9 +26,9 @@ domready(function() {
 				$lb.getElementsByTagName('div')[0].innerHTML = '<div><img src="'+link.href+'" class="hidden" alt="" ></div>';
 				$im = $lb.getElementsByTagName('img')[0];
 				$im.onload = function(){
-					this.classList.remove('hidden');
+					this.className = '';
 				};
-				$lb.classList.add('active');
+				$lb.className = 'active';
 				if (addEventListener == 'addEventListener') {
 					e.preventDefault();
 				}
@@ -34,18 +39,18 @@ domready(function() {
 	document.getElementById('next')[addEventListener](click, function(e){
 		if(current < images.length - 1){
 			current++;
-			$im.classList.add('hidden');
+			$im.className = 'hidden';
 			$im.src = images[current];
 		}
 	}, false);
 	document.getElementById('prev')[addEventListener](click, function(e){
 		if(current > 0){
 			current--;
-			$im.classList.add('hidden');
+			$im.className = 'hidden';
 			$im.src = images[current];
 		}
 	}, false);
 	document.getElementById('close')[addEventListener](click, function(e){
-		$lb.classList.remove('active');
+		$lb.className = '';
 	}, false);
-}, false);
+});
