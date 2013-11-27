@@ -22,10 +22,13 @@
 	width: 1.5em;
 	margin-top: -1.25em;
 	padding-bottom: .1em;
+	background: #000;
 	background: rgba(0, 0, 0, .5);
-	border: 1px solid  rgba(255, 255, 255, 0);
+	border: 1px solid #000;
+	border: 1px solid rgba(255, 255, 255, 0);
 	border-radius: .25em;
 	color: #fff;
+	font-family: 'Arial Unicode MS', 'Lucida Sans', Arial, Helvetica, sans-serif;
 	font-size: 1.5em;
 	font-weight: bold;
 	line-height: 2.2em;
@@ -104,5 +107,3 @@
 #lightbox img.hidden {
 	opacity: 0;
 }
-
-
