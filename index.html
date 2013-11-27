@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, height=device-height" />
+  <title>Lightbox example</title>
+  <link type="text/css" rel="stylesheet" href="lightbox.css" media="all" />
+  <script type="text/javascript" src="lightbox.js"></script>
+</head>
+<body>
+  <h1>Lightbox example</h1>
+
+  <p id="gallery">
+
+    <a href="http://lorempixel.com/1200/800/people/1"><img src="http://lorempixel.com/320/240/people/1" alt="" /></a>
+    <a href="http://lorempixel.com/1200/800/people/2"><img src="http://lorempixel.com/320/240/people/2" alt="" /></a>
+    <a href="http://lorempixel.com/1200/800/people/3"><img src="http://lorempixel.com/320/240/people/3" alt="" /></a>
+    <a href="http://lorempixel.com/1200/800/people/4"><img src="http://lorempixel.com/320/240/people/4" alt="" /></a>
+
+  </p>
+
+  <h2>How it works</h2>
+  <p>
+    This lightbox script uses only plain JavaScript and DOM methods.
+    It looks for a element with <code>id="gallery"</code>, walks all the links in it and attaches event handler to load them in a predefined DOM element.
+    I've avoided using modern methods like <code>querySelector</code> and <code>querySelectorAll</code> so that the script
+    works in old IE. The script will use <a href="https://github.com/ded/domready">Dustin Diaz' <code>domready()</code> method</a> if available and fallback to a simple replacement function
+    that uses either the standard <code>DOMCOntentLoaded</code> event or <code>window.onload</code>.
+  </p>
+
+  <h2>How to use</h2>
+  <p>Add the JavaScript and CSS files to the <code>head</code> of your document:</p>
+  <pre>
+    &lt;link type="text/css" rel="stylesheet" href="lightbox.css" media="all" />
+    &lt;script type="text/javascript" src="lightbox.js">&lt;/script>
+  </pre>
+  <p>Add this markup at the bottom of your document (I hate creating markup with JavaScript):</p>
+  <pre>
+    &lt;div id="lightbox">
+      &lt;button id="prev">&#10094;&lt;/button>
+      &lt;button id="next">&#10095;&lt;/button>
+      &lt;div>
+        &lt;div>&lt;/div>
+      &lt;/div>
+      &lt;button id="close">&#10005;&lt;/button>
+    &lt;/div>
+  </pre>
+
+  <div id="lightbox">
+    <button id="prev">&#10094;</button>
+    <button id="next">&#10095;</button>
+    <div>
+      <div></div>
+    </div>
+    <button id="close">&#10005;</button>
+  </div>
+
+</body>
+</html>
