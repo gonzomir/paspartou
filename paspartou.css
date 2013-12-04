@@ -35,6 +35,7 @@
 	text-align: center;
 	z-index: 2;
 	cursor: pointer;
+	transition: all ease 200ms;
 }
 
 #paspartou button:hover {
@@ -104,8 +105,13 @@
 	transition: all ease 200ms;
 }
 
-#paspartou img.hidden {
+#paspartou .hidden {
 	opacity: 0;
+}
+
+#paspartou button.hidden {
+	cursot: default;
+	pointer-events: none;
 }
 
 #paspartou p {

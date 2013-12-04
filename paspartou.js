@@ -17,8 +17,26 @@ domready(function() {
 	var $lb = document.getElementById('paspartou');
 	var $im = null;
 	var $p = null;
+	var $next = document.getElementById('next');
+	var $prev = document.getElementById('prev');
 	var addEventListener = (container.addEventListener)?'addEventListener':'attachEvent';
 	var click = (addEventListener == 'addEventListener')?'click':'onclick';
+
+	function setButtons(current){
+		if(current == images.length - 1){
+			$next.className = 'hidden';
+		}
+		else{
+			$next.className = '';
+		}
+		if(current == 0){
+			$prev.className = 'hidden';
+		}
+		else{
+			$prev.className = '';
+		}
+	}
+
 	for(var i = 0, ll = $links.length; i < ll; i++){
 		images.push( {
 			url: $links[i].href,
@@ -36,6 +54,7 @@ domready(function() {
 					$p.innerHTML = this.getAttribute('alt');
 				};
 				$lb.className = 'active';
+				setButtons(index);
 				if (addEventListener == 'addEventListener') {
 					e.preventDefault();
 				}
@@ -43,20 +62,22 @@ domready(function() {
 			}, false);
 		})($links[i], i);
 	};
-	document.getElementById('next')[addEventListener](click, function(e){
+	$next[addEventListener](click, function(e){
 		if(current < images.length - 1){
 			current++;
 			$im.className = 'hidden';
 			$im.src = images[current].url;
 			$im.setAttribute('alt', images[current].title);
+			setButtons(current);
 		}
 	}, false);
-	document.getElementById('prev')[addEventListener](click, function(e){
+	$prev[addEventListener](click, function(e){
 		if(current > 0){
 			current--;
 			$im.className = 'hidden';
 			$im.src = images[current].url;
 			$im.setAttribute('alt', images[current].title);
+			setButtons(current);
 		}
 	}, false);
 	document.getElementById('close')[addEventListener](click, function(e){
