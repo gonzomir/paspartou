@@ -16,17 +16,24 @@ domready(function() {
 	var $links = container.getElementsByTagName('a');
 	var $lb = document.getElementById('paspartou');
 	var $im = null;
+	var $p = null;
 	var addEventListener = (container.addEventListener)?'addEventListener':'attachEvent';
 	var click = (addEventListener == 'addEventListener')?'click':'onclick';
 	for(var i = 0, ll = $links.length; i < ll; i++){
-		images.push($links[i].href);
+		images.push( {
+			url: $links[i].href,
+			title: ($links[i].getAttribute('data-title') != null)?$links[i].getAttribute('data-title'):''
+		} );
 		(function(link, index){
 			link[addEventListener](click, function(e){
 				current = index;
-				$lb.getElementsByTagName('div')[0].innerHTML = '<div><img src="'+link.href+'" class="hidden" alt="" ></div>';
+				var title = (link.getAttribute('data-title') != null)?link.getAttribute('data-title'):'';
+				$lb.getElementsByTagName('div')[0].innerHTML = '<div><img src="'+link.href+'" class="hidden" alt="' + title + '" ><p>' + title + '</p></div>';
 				$im = $lb.getElementsByTagName('img')[0];
+				$p = $lb.getElementsByTagName('p')[0];
 				$im.onload = function(){
 					this.className = '';
+					$p.innerHTML = this.getAttribute('alt');
 				};
 				$lb.className = 'active';
 				if (addEventListener == 'addEventListener') {
@@ -40,14 +47,16 @@ domready(function() {
 		if(current < images.length - 1){
 			current++;
 			$im.className = 'hidden';
-			$im.src = images[current];
+			$im.src = images[current].url;
+			$im.setAttribute('alt', images[current].title);
 		}
 	}, false);
 	document.getElementById('prev')[addEventListener](click, function(e){
 		if(current > 0){
 			current--;
 			$im.className = 'hidden';
-			$im.src = images[current];
+			$im.src = images[current].url;
+			$im.setAttribute('alt', images[current].title);
 		}
 	}, false);
 	document.getElementById('close')[addEventListener](click, function(e){
