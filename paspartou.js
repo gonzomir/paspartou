@@ -24,6 +24,7 @@ domready(function() {
 		var click = (addEventListener == 'addEventListener')?'click':'onclick';
 		var focus = (addEventListener == 'addEventListener')?'focus':'onfocus';
 		var blur = (addEventListener == 'addEventListener')?'blur':'onblur';
+		var keyup = (addEventListener == 'addEventListener')?'keyup':'onkeyup';
 
 		function setButtons(current){
 			if(current == images.length - 1){
@@ -92,6 +93,24 @@ domready(function() {
 		document.getElementById('close')[addEventListener](click, function(e){
 			$lb.className = '';
 		}, false);
+		document.body[addEventListener](keyup, function(e){
+			if( $lb.className != 'active' ) return;
+			switch (e.key) {
+				case "ArrowLeft":
+					$prev.click();
+					break;
+				case "ArrowRight":
+					$next.click();
+					break;
+				case "Escape":
+					$lb.className = '';
+					break;
+				default:
+					return; // Quit when this doesn't handle the key event.
+			}
+			// Consume the event for suppressing "double action".
+			e.preventDefault();
+		});
 	}
 
 });
